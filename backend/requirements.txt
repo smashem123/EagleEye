@@ -1,0 +1,42 @@
+# FastAPI and web framework dependencies
+fastapi==0.104.1
+uvicorn[standard]==0.24.0
+python-multipart==0.0.6
+
+# Database dependencies
+sqlalchemy==2.0.23
+alembic==1.12.1
+psycopg2-binary==2.9.9
+asyncpg==0.29.0
+
+# Redis for caching
+redis==5.0.1
+aioredis==2.0.1
+
+# HTTP client for API integrations
+httpx==0.25.2
+aiohttp==3.9.1
+
+# Data validation and serialization
+pydantic==2.5.0
+pydantic-settings==2.0.3
+
+# Authentication and security
+python-jose[cryptography]==3.3.0
+passlib[bcrypt]==1.7.4
+python-multipart==0.0.6
+
+# Background tasks and scheduling
+celery==5.3.4
+redis==5.0.1
+
+# Utilities
+python-dotenv==1.0.0
+loguru==0.7.2
+pytz==2023.3
+
+# Development and testing
+pytest==7.4.3
+pytest-asyncio==0.21.1
+black==23.11.0
+flake8==6.1.0
