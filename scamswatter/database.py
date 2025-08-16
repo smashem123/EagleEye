@@ -175,7 +175,8 @@ class ScamDatabase:
         # Text search in title and description
         if query:
             sql += " AND (title LIKE ? OR description LIKE ?)"
-            params.extend([f"%{query}%", f"%{query}%"])
+            search_term = f"%{query}%"
+            params.extend([search_term, search_term])
         
         # Filter by scam type
         if scam_type:

@@ -101,7 +101,13 @@ def sources(
     asyncio.run(_sources_command(test, list_sources))
 
 
-async def _fetch_command(source: Optional[str], limit: int, scam_type: Optional[str], save_to_db: bool, show_new: bool):
+async def _fetch_command(
+    source: Optional[str],
+    limit: int,
+    scam_type: Optional[str],
+    save_to_db: bool,
+    show_new: bool
+):
     """Implementation of fetch command"""
     ui = get_ui()
     config = get_config()
@@ -133,13 +139,18 @@ async def _fetch_command(source: Optional[str], limit: int, scam_type: Optional[
                 
                 # Filter by type if specified
                 if scam_type:
-                    scams = [s for s in scams if scam_type.lower() in s.scam_type.lower()]
+                    scams = [
+                        s for s in scams 
+                        if scam_type.lower() in s.scam_type.lower()
+                    ]
                 
                 # Filter new scams if requested
                 if show_new:
                     new_scams = []
                     for scam in scams:
-                        existing = db.get_scam_by_source(scam.source, scam.source_id)
+                        existing = db.get_scam_by_source(
+                            scam.source, scam.source_id
+                        )
                         if not existing:
                             new_scams.append(scam)
                     scams = new_scams

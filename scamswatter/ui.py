@@ -207,12 +207,17 @@ class ScamSwatterUI:
         """Create a configuration panel"""
         content = []
         
-        content.append(f"[bold]Theme:[/bold] {self.config.color_scheme}")
-        content.append(f"[bold]Refresh Interval:[/bold] {self.config.refresh_interval}s")
-        content.append(f"[bold]Max Results:[/bold] {self.config.max_results}")
-        content.append(f"[bold]Default Location:[/bold] {self.config.default_location or 'Not set'}")
-        content.append(f"[bold]Preferred Sources:[/bold] {', '.join(self.config.preferred_sources)}")
-        content.append(f"[bold]Offline Mode:[/bold] {'Yes' if self.config.offline_mode else 'No'}")
+        config_items = [
+            ("Theme", self.config.color_scheme),
+            ("Refresh Interval", f"{self.config.refresh_interval}s"),
+            ("Max Results", str(self.config.max_results)),
+            ("Default Location", self.config.default_location or "Not set"),
+            ("Preferred Sources", ", ".join(self.config.preferred_sources)),
+            ("Offline Mode", "Yes" if self.config.offline_mode else "No")
+        ]
+        
+        for label, value in config_items:
+            content.append(f"[bold]{label}:[/bold] {value}")
         
         return Panel(
             "\n".join(content),
@@ -223,7 +228,10 @@ class ScamSwatterUI:
     
     def print_error(self, message: str) -> None:
         """Print an error message"""
-        self.console.print(f"[bold {self.theme['error']}]Error:[/bold {self.theme['error']}] {message}")
+        error_style = self.theme['error']
+        self.console.print(
+            f"[bold {error_style}]Error:[/bold {error_style}] {message}"
+        )
     
     def print_warning(self, message: str) -> None:
         """Print a warning message"""

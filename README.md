@@ -39,28 +39,35 @@ Fraud is evolving at internet speed. Government bulletins and press releases are
 
 If you’re ready to fight back against scams, join us — fork the repo, submit your ideas, and help make ScamSwatter the internet’s most trusted scam radar.
 
-# ScamSwatter CLI 
+# ScamSwatter CLI 🛡️
 **Your Personal Scam Radar**
 
-A powerful Python command-line tool that delivers real-time scam intelligence directly to your terminal. ScamSwatter pulls data from multiple public threat intelligence APIs, processes it locally, and presents it in a clean, color-coded format that's perfect for security professionals and everyday users alike.
+A powerful Python command-line tool that delivers real-time scam intelligence directly to your terminal. ScamSwatter pulls data from multiple public threat intelligence APIs, processes it locally, and presents it in a clean, color-coded format perfect for security professionals and everyday users.
 
-## ⚡ Quick Start
+## 🚀 Quick Start
 
 ```bash
-# Install ScamSwatter
-pip install scamswatter
+# Clone the repository
+git clone https://github.com/scamswatter/scamswatter.git
+cd scamswatter
+
+# Install dependencies
+pip install typer[all] rich httpx pydantic pydantic-settings pyyaml aiofiles
+
+# Run ScamSwatter
+python -m scamswatter --help
 
 # Fetch latest scam intelligence
-scamswatter fetch
+python -m scamswatter fetch --limit 10
 
 # Watch for new scams in real-time
-scamswatter watch
+python -m scamswatter watch
 
 # Search for specific threats
-scamswatter search "paypal phishing"
+python -m scamswatter search "paypal phishing"
 ```
 
-## 🚀 Key Features
+## ✨ Key Features
 
 - **🔍 Live Scam Feed** - Pull latest threats from multiple public APIs
 - **👁️ Real-Time Monitoring** - Watch for new scams with live-updating terminal display
@@ -69,6 +76,55 @@ scamswatter search "paypal phishing"
 - **💾 Local Storage** - SQLite database for offline access and history
 - **⚙️ Configurable** - Customize sources, display, and behavior
 - **🔌 Modular Design** - Easy to add new threat intelligence sources
+- **🔒 Privacy-First** - All data stored locally, no tracking
+
+## 📋 Commands Overview
+
+| Command | Purpose | Example |
+|---------|---------|---------|
+| `fetch` | Pull latest scam intelligence | `python -m scamswatter fetch --limit 50` |
+| `watch` | Real-time monitoring with live updates | `python -m scamswatter watch --interval 30` |
+| `search` | Query database or online sources | `python -m scamswatter search "investment fraud"` |
+| `stats` | View database statistics and source status | `python -m scamswatter stats` |
+| `config` | Manage configuration settings | `python -m scamswatter config --show` |
+| `sources` | Test and manage API sources | `python -m scamswatter sources --test` |
+
+## 🎨 Sample Output
+
+```
+ ███████╗ ██████╗ █████╗ ███╗   ███╗███████╗██╗    ██╗ █████╗ ████████╗████████╗███████╗██████╗ 
+ ██╔════╝██╔════╝██╔══██╗████╗ ████║██╔════╝██║    ██║██╔══██╗╚══██╔══╝╚══██╔══╝██╔════╝██╔══██╗
+ ███████╗██║     ███████║██╔████╔██║███████╗██║ █╗ ██║███████║   ██║      ██║   █████╗  ██████╔╝
+ ╚════██║██║     ██╔══██║██║╚██╔╝██║╚════██║██║███╗██║██╔══██║   ██║      ██║   ██╔══╝  ██╔══██╗
+ ███████║╚██████╗██║  ██║██║ ╚═╝ ██║███████║╚███╔███╔╝██║  ██║   ██║      ██║   ███████╗██║  ██║
+ ╚══════╝ ╚═════╝╚═╝  ╚═╝╚═╝     ╚═╝╚══════╝ ╚══╝╚══╝ ╚═╝  ╚═╝   ╚═╝      ╚═╝   ╚══════╝╚═╝  ╚═╝
+
+╭─────────────────────── Latest Scam Intelligence (10 records) ───────────────────────╮
+│ Type      │ Title                    │ Source    │ Severity │ First Seen    │ Location │
+├───────────┼──────────────────────────┼───────────┼──────────┼───────────────┼──────────┤
+│ phishing  │ Fake PayPal Security...  │ PHISHTANK │    8.5   │ 2m ago        │ US       │
+│ fraud     │ IRS Tax Refund Scam      │ MOCK      │    7.0   │ 15m ago       │ UK       │
+│ robocall  │ Tech Support Scam        │ MOCK      │    6.5   │ 1h ago        │ CA       │
+╰───────────┴──────────────────────────┴───────────┴──────────┴───────────────┴──────────╯
+
+✅ Success: Fetched 10 scams from MOCK
+```
+
+## 🛠️ Tech Stack
+
+- **Language**: Python 3.11+
+- **CLI Framework**: Typer with Rich terminal UI
+- **Database**: SQLite (local, zero-config)
+- **HTTP Client**: httpx for async API calls
+- **Configuration**: YAML-based config files
+- **Packaging**: Poetry for dependency management
+
+## 📖 Documentation
+
+- **[Complete User Guide](USER_GUIDE.md)** - Detailed step-by-step instructions for all commands
+- **[API Sources Guide](USER_GUIDE.md#api-sources)** - How to configure PhishTank, URLVoid, and other sources
+- **[Configuration Reference](USER_GUIDE.md#configuration)** - All configuration options explained
+- **[Troubleshooting Guide](USER_GUIDE.md#troubleshooting)** - Common issues and solutions
 
 ## 🛠️ Tech Stack
 
