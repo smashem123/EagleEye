@@ -3,14 +3,14 @@ requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
 
 [tool.poetry]
-name = "scamswatter"
+name = "eagleeye"
 version = "0.1.0"
-description = "Real-time scam intelligence CLI tool - Your personal scam radar"
-authors = ["ScamSwatter Team <contact@scamswatter.dev>"]
+description = "EagleEye - Real-time scam intelligence CLI tool - Your personal scam radar"
+authors = ["EagleEye Team <contact@eagleeye.dev>"]
 readme = "README.md"
-homepage = "https://github.com/scamswatter/scamswatter"
-repository = "https://github.com/scamswatter/scamswatter"
-documentation = "https://scamswatter.readthedocs.io"
+homepage = "https://eagleeye.dev"
+repository = "https://github.com/eagleeye/eagleeye"
+documentation = "https://eagleeye.dev"
 keywords = ["security", "scam", "fraud", "intelligence", "cli"]
 classifiers = [
     "Development Status :: 4 - Beta",
@@ -37,6 +37,24 @@ pyyaml = "^6.0.1"
 click = "^8.1.7"
 asyncio-mqtt = {version = "^0.16.1", optional = true}
 aiofiles = "^23.2.1"
+spacy = "^3.7.0"
+textblob = "^0.17.1"
+scikit-learn = "^1.3.0"
+numpy = "^1.24.0"
+pandas = "^2.0.0"
+nltk = "^3.8.0"
+phonenumbers = "^8.13.0"
+requests = "^2.31.0"
+urllib3 = "^2.0.0"
+python-dateutil = "^2.8.0"
+validators = "^0.22.0"
+tldextract = "^5.0.0"
+beautifulsoup4 = "^4.12.2"
+joblib = "^1.3.2"
+speechrecognition = "^3.10.0"
+pydub = "^0.25.1"
+librosa = "^0.10.1"
+geoip2 = "^4.7.0"
 
 [tool.poetry.extras]
 notifications = ["asyncio-mqtt"]
@@ -51,7 +69,7 @@ coverage = "^7.3.2"
 pre-commit = "^3.6.0"
 
 [tool.poetry.scripts]
-scamswatter = "scamswatter.cli:app"
+eagleeye = "eagleeye.cli:app"
 
 [tool.black]
 line-length = 88

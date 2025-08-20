@@ -3,9 +3,9 @@ Real-Time Scam Intelligence at Your Fingertips
 
 🛡️ About the Project
 
-ScamSwatter is a next-generation, open-source intelligence platform that tracks, analyzes, and alerts you about scam activity in real time — whether it’s phishing emails, fake websites, robocalls, or local fraud attempts.
+EagleEye is a next-generation, open-source intelligence platform that tracks, analyzes, and alerts you about scam activity in real time — whether it’s phishing emails, fake websites, robocalls, or local fraud attempts.
 
-Leveraging public threat intelligence APIs, location-aware reporting, and AI-powered scam pattern recognition, ScamSwatter empowers individuals, businesses, and security teams to detect and stop scams before they cause harm.
+Leveraging public threat intelligence APIs, location-aware reporting, and AI-powered scam pattern recognition, EagleEye empowers individuals, businesses, and security teams to detect and stop scams before they cause harm.
 
 Think of it as a personal scam radar — always on, always learning.
 
@@ -33,61 +33,122 @@ APIs: Multiple public scam intelligence sources
 
 Deployment: Docker + GitHub Actions
 
-📢 Why ScamSwatter?
+📢 Why EagleEye?
 
-Fraud is evolving at internet speed. Government bulletins and press releases are too slow — by the time they warn you, the scammers have already moved on. ScamSwatter changes that by giving you live, actionable intelligence in the palm of your hand.
+Fraud is evolving at internet speed. Government bulletins and press releases are too slow — by the time they warn you, the scammers have already moved on. EagleEye changes that by giving you live, actionable intelligence in the palm of your hand.
 
-If you’re ready to fight back against scams, join us — fork the repo, submit your ideas, and help make ScamSwatter the internet’s most trusted scam radar.
+If you’re ready to fight back against scams, join us — fork the repo, submit your ideas, and help make EagleEye the internet’s most trusted scam radar.
 
-# ScamSwatter CLI 🛡️
+# 🦅 EagleEye CLI 🛡️
 **Your Personal Scam Radar**
 
-A powerful Python command-line tool that delivers real-time scam intelligence directly to your terminal. ScamSwatter pulls data from multiple public threat intelligence APIs, processes it locally, and presents it in a clean, color-coded format perfect for security professionals and everyday users.
+**EagleEye** is a powerful command-line tool that provides real-time scam intelligence from multiple threat feeds. Built with Python and featuring a beautiful Rich terminal interface, it helps security professionals, researchers, and everyday users stay ahead of the latest scams and phishing attempts.
 
 ## 🚀 Quick Start
 
+### Installation
 ```bash
 # Clone the repository
-git clone https://github.com/scamswatter/scamswatter.git
-cd scamswatter
+git clone https://github.com/yourusername/eagleeye.git
+cd eagleeye
 
 # Install dependencies
-pip install typer[all] rich httpx pydantic pydantic-settings pyyaml aiofiles
+pip install -r requirements.txt
 
-# Run ScamSwatter
-python -m scamswatter --help
+# Install NLP model for text analysis
+python -m spacy download en_core_web_sm
+```
 
+### Basic Usage
+```bash
 # Fetch latest scam intelligence
-python -m scamswatter fetch --limit 10
+python run_eagleeye.py fetch
 
-# Watch for new scams in real-time
-python -m scamswatter watch
+# Analyze suspicious content
+python run_eagleeye.py analyze --text "Congratulations! You've won $1,000,000!"
+
+# Verify phone numbers and URLs
+python run_eagleeye.py verify --phone "8005551234"
+python run_eagleeye.py verify --url "https://suspicious-site.com"
+
+# Access government complaint data
+python run_eagleeye.py government --source ftc --state CA
+
+# Analyze scam trends and hotspots
+python run_eagleeye.py trends --hotspots --forecast
 
 # Search for specific threats
-python -m scamswatter search "paypal phishing"
+python run_eagleeye.py search "paypal phishing"
+
+# Monitor in real-time
+python run_eagleeye.py watch
+
+# View statistics
+python run_eagleeye.py stats
+
+# Train ML models for better detection
+python run_eagleeye.py train --model random_forest --optimize
+
+# Predict scam probability with AI
+python run_eagleeye.py predict --text "Congratulations! You've won $10,000!"
+
+# Manage ML models
+python run_eagleeye.py models --list --stats
 ```
 
 ## ✨ Key Features
 
+### Core Intelligence
 - **🔍 Live Scam Feed** - Pull latest threats from multiple public APIs
 - **👁️ Real-Time Monitoring** - Watch for new scams with live-updating terminal display
 - **🔎 Intelligent Search** - Query local database or search online sources
 - **📊 Rich Terminal UI** - Beautiful tables, colors, and progress indicators
-- **💾 Local Storage** - SQLite database for offline access and history
-- **⚙️ Configurable** - Customize sources, display, and behavior
-- **🔌 Modular Design** - Easy to add new threat intelligence sources
-- **🔒 Privacy-First** - All data stored locally, no tracking
+- **🗄️ Local Database** - SQLite storage for offline access and history
+- **⚡ Async Operations** - Fast parallel API calls and data processing
+
+### Advanced Analysis
+- **📞 Caller ID Verification** - Cross-reference phone numbers with scam databases
+- **🔗 Link Scanning** - Detect phishing URLs and malware threats
+- **🧠 NLP Text Analysis** - Identify scam language patterns and impersonation attempts
+- **🎤 Voice Analysis** - Analyze robocall recordings for scam indicators
+- **🏛️ Government Data** - Access FTC Do Not Call and FCC complaint databases
+- **🌍 Geolocation Intelligence** - Map scam activity by location with geofencing
+- **🤖 Machine Learning Models** - AI-powered scam detection with multiple algorithms
+- **⚡ Feature Engineering** - Advanced text, URL, and phone number analysis
+
+### Trend Analysis & Insights
+- **📈 Scam Hotspots** - Identify high-risk geographic areas
+- **🔮 Predictive Analytics** - Forecast emerging scam trends
+- **📊 Risk Assessment** - 0-10 threat scoring with confidence levels
+- **🎯 Smart Filtering** - Filter by type, date, source, location, and keywords
+- **📈 Statistics & Analytics** - Track trends and source reliability
+
+### Community & Privacy
+- **👥 Crowdsourced Intelligence** - Community-driven scam reporting and validation
+- **🏆 Reputation System** - Earn trust through accurate scam validations
+- **🛡️ Privacy-First** - No tracking, all data stored locally
+- **🔧 Configurable** - Customize sources, limits, and display preferences, no tracking
 
 ## 📋 Commands Overview
 
 | Command | Purpose | Example |
 |---------|---------|---------|
-| `fetch` | Pull latest scam intelligence | `python -m scamswatter fetch --limit 50` |
-| `watch` | Real-time monitoring with live updates | `python -m scamswatter watch --interval 30` |
-| `search` | Query database or online sources | `python -m scamswatter search "investment fraud"` |
-| `stats` | View database statistics and source status | `python -m scamswatter stats` |
-| `config` | Manage configuration settings | `python -m scamswatter config --show` |
-| `sources` | Test and manage API sources | `python -m scamswatter sources --test` |
+| `fetch` | Pull latest scam intelligence | `python run_eagleeye.py fetch --limit 50` |
+| `watch` | Real-time monitoring with live updates | `python run_eagleeye.py watch --interval 30` |
+| `search` | Query database or online sources | `python run_eagleeye.py search "investment fraud"` |
+| `stats` | View database statistics and source status | `python run_eagleeye.py stats` |
+| `config` | Manage configuration settings | `python run_eagleeye.py config --show` |
+| `analyze` | Analyze text/voice for scam patterns | `python run_eagleeye.py analyze --text "Suspicious message"` |
+| `verify` | Verify phone numbers and URLs | `python run_eagleeye.py verify --phone "8005551234"` |
+| `trends` | Analyze scam trends and hotspots | `python run_eagleeye.py trends --hotspots --forecast` |
+| `government` | Access FTC/FCC complaint data | `python run_eagleeye.py government --source ftc --state CA` |
+| `report` | Report scams to community database | `python run_eagleeye.py report --text "Scam message"` |
+| `heatmap` | View geographic scam activity | `python run_eagleeye.py heatmap --trending` |
+| `community` | Community moderation and stats | `python run_eagleeye.py community stats` |
+| `sources` | Test and manage API sources | `python -m eagleeye sources --test` |
+| `train` | Train ML models for scam detection | `python run_eagleeye.py train --model random_forest --optimize` |
+| `predict` | AI-powered scam prediction | `python run_eagleeye.py predict --text "Suspicious content"` |
+| `models` | Manage ML models and versions | `python run_eagleeye.py models --list --stats` |
 
 ## 🎨 Sample Output
 
@@ -102,7 +163,7 @@ python -m scamswatter search "paypal phishing"
 ╭─────────────────────── Latest Scam Intelligence (10 records) ───────────────────────╮
 │ Type      │ Title                    │ Source    │ Severity │ First Seen    │ Location │
 ├───────────┼──────────────────────────┼───────────┼──────────┼───────────────┼──────────┤
-│ phishing  │ Fake PayPal Security...  │ PHISHTANK │    8.5   │ 2m ago        │ US       │
+│ phishing  │ Fake PayPal Security...  │ OPENPHISH │    8.5   │ 2m ago        │ US       │
 │ fraud     │ IRS Tax Refund Scam      │ MOCK      │    7.0   │ 15m ago       │ UK       │
 │ robocall  │ Tech Support Scam        │ MOCK      │    6.5   │ 1h ago        │ CA       │
 ╰───────────┴──────────────────────────┴───────────┴──────────┴───────────────┴──────────╯
@@ -116,6 +177,8 @@ python -m scamswatter search "paypal phishing"
 - **CLI Framework**: Typer with Rich terminal UI
 - **Database**: SQLite (local, zero-config)
 - **HTTP Client**: httpx for async API calls
+- **Machine Learning**: scikit-learn, spaCy, pandas, numpy
+- **Feature Engineering**: Custom text, URL, and phone analysis
 - **Configuration**: YAML-based config files
 - **Packaging**: Poetry for dependency management
 
@@ -140,48 +203,60 @@ python -m scamswatter search "paypal phishing"
 
 ```bash
 # Fetch latest scam data
-scamswatter fetch --limit 100 --source phishtank
+eagleeye fetch --limit 100 --source openphish
 
 # Live monitoring with auto-refresh
-scamswatter watch --interval 30 --compact
+eagleeye watch --interval 30 --compact
 
 # Search local database
-scamswatter search "investment fraud" --hours 24
+eagleeye search "investment fraud" --hours 24
 
 # Search online sources
-scamswatter search suspicious-domain.com --online
+eagleeye search suspicious-domain.com --online
 
 # View statistics
-scamswatter stats
+eagleeye stats
 
 # Manage configuration
-scamswatter config --show
-scamswatter config --edit
+eagleeye config --show
+eagleeye config --edit
 ```
 
 ### Advanced Usage
 
 ```bash
 # Filter by scam type
-scamswatter fetch --type phishing --save
+eagleeye fetch --type phishing --save
 
 # Show only new scams since last check
-scamswatter fetch --new
+eagleeye fetch --new
 
 # Test API connections
-scamswatter sources --test
+eagleeye sources --test
 
 # Compact watch mode for smaller terminals
-scamswatter watch --compact --limit 15
+eagleeye watch --compact --limit 15
+
+# Train different ML models
+eagleeye train --model gradient_boost --optimize --description "Production model"
+
+# Make predictions with specific model
+eagleeye predict --text "Click here to claim your prize!" --model-id model_20241220_143015
+
+# Compare model performance
+eagleeye models --compare model1_id,model2_id
+
+# Clean up old models
+eagleeye models --cleanup
 ```
 
 ## ⚙️ Configuration
 
-ScamSwatter stores its configuration in `~/.scamswatter/config.yml`:
+EagleEye stores its configuration in `~/.eagleeye/config.yml`:
 
 ```yaml
 # API Keys (optional for some sources)
-phishtank_api_key: your_api_key_here
+openphish_api_key: your_api_key_here
 urlvoid_api_key: your_api_key_here
 
 # Display Preferences
@@ -191,7 +266,7 @@ compact_mode: false
 
 # Data Sources
 preferred_sources:
-  - phishtank
+  - openphish
   - urlvoid
   - mock
 
@@ -203,7 +278,7 @@ offline_mode: false
 
 ## 🔌 Supported Sources
 
-- **PhishTank** - Community-driven phishing database
+- **OpenPhish** - Community-driven phishing database with live threat feeds
 - **URLVoid** - Website reputation and safety checker
 - **Mock Source** - For testing and demonstration
 
@@ -215,7 +290,7 @@ offline_mode: false
 ╭─────────────────────── Latest Scam Intelligence (25 records) ───────────────────────╮
 │ Type      │ Title                    │ Source    │ Severity │ First Seen    │ Location │
 ├───────────┼──────────────────────────┼───────────┼──────────┼───────────────┼──────────┤
-│ phishing  │ Fake PayPal Security...  │ PHISHTANK │    8.5   │ 2m ago        │ US       │
+│ phishing  │ Fake PayPal Security...  │ OPENPHISH │    8.5   │ 2m ago        │ US       │
 │ fraud     │ IRS Tax Refund Scam      │ MOCK      │    7.0   │ 15m ago       │ UK       │
 │ robocall  │ Tech Support Scam        │ MOCK      │    6.5   │ 1h ago        │ CA       │
 ╰───────────┴──────────────────────────┴───────────┴──────────┴───────────────┴──────────╯
@@ -225,21 +300,21 @@ offline_mode: false
 
 ### From PyPI (Coming Soon)
 ```bash
-pip install scamswatter
+pip install eagleeye
 ```
 
 ### From Source
 ```bash
-git clone https://github.com/scamswatter/scamswatter.git
-cd scamswatter
+git clone https://github.com/eagleeye/eagleeye.git
+cd eagleeye
 poetry install
-poetry run scamswatter --help
+poetry run eagleeye --help
 ```
 
 ### Development Setup
 ```bash
-git clone https://github.com/scamswatter/scamswatter.git
-cd scamswatter
+git clone https://github.com/eagleeye/eagleeye.git
+cd eagleeye
 poetry install --with dev
 poetry run pre-commit install
 ```
@@ -247,7 +322,7 @@ poetry run pre-commit install
 ## 🔒 Privacy & Security
 
 - **Local-First**: All data stored locally in SQLite database
-- **No Tracking**: ScamSwatter doesn't collect or transmit personal data
+- **No Tracking**: EagleEye doesn't collect or transmit personal data
 - **API Keys**: Stored locally in config file (never transmitted to us)
 - **Open Source**: Full transparency - audit the code yourself
 
@@ -270,9 +345,9 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 🆘 Support
 
-- **Documentation**: [docs.scamswatter.dev](https://docs.scamswatter.dev)
-- **Issues**: [GitHub Issues](https://github.com/scamswatter/scamswatter/issues)
-- **Discussions**: [GitHub Discussions](https://github.com/scamswatter/scamswatter/discussions)
+- **Documentation**: [docs.eagleeye.dev](https://docs.eagleeye.dev)
+- **Issues**: [GitHub Issues](https://github.com/eagleeye/eagleeye/issues)
+- **Discussions**: [GitHub Discussions](https://github.com/eagleeye/eagleeye/discussions)
 
 ---
 

@@ -1,4 +1,4 @@
-# ScamSwatter CLI Optimization Guide
+# EagleEye CLI Optimization Guide
 
 ## Code Quality Improvements
 
@@ -243,4 +243,4 @@ async def _fetch_command(source, limit, scam_type, save_to_db, show_new):
 3. **Input Validation** - Sanitize all user inputs
 4. **Audit Logging** - Track all operations
 
-This optimization guide provides a roadmap for improving ScamSwatter's performance, maintainability, and user experience while maintaining its core functionality as a powerful scam intelligence CLI tool.
+This optimization guide provides a roadmap for improving EagleEye's performance, maintainability, and user experience while maintaining its core functionality as a powerful scam intelligence CLI tool.
